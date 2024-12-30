@@ -7,9 +7,9 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-about">
-          <h3>About QuickCart</h3>
+          <h3>About TechCart</h3>
           <p>
-            QuickCart is your one-stop solution for all your shopping needs.
+            TechCart is your one-stop solution for all your shopping needs.
             Discover a wide range of products with amazing deals and fast
             delivery!
           </p>
@@ -17,7 +17,7 @@ const Footer = () => {
 
         <div className="footer-contact">
           <h3>Contact Us</h3>
-          <p>Email: support@quickcart.com</p>
+          <p>Email: support@Techcart.com</p>
           <p>Phone: +123 456 7890</p>
         </div>
 
@@ -38,7 +38,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; 2024 QuickCart. All Rights Reserved.</p>
+        <p>&copy; 2024 TechCart. All Rights Reserved.</p>
       </div>
     </footer>
   );

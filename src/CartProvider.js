@@ -9,16 +9,16 @@ const initialState = {
   totalQuantity: JSON.parse(localStorage.getItem("totalQuantity")) || 0,
 };
 
-// Reducer function to manage cart actions
+
 const CartReducer = (state, action) => {
-  // Reducer code
+ 
 };
 
 
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(CartReducer, initialState);
 
-  // Save cart data to localStorage whenever it updates
+
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     localStorage.setItem("totalAmount", JSON.stringify(state.totalAmount));

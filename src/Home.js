@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css"; 
 import { DataCard } from "./Data";
 import "./Home.css";
 
@@ -26,7 +28,25 @@ const Home = ({ query }) => {
   }, []);
 
   if (loading) {
-    return <p>Loading products...</p>;
+    return (
+      <div className="skeleton-container">
+        <h2>
+          <Skeleton width={200} />
+        </h2>
+        <div className="products-skeleton">
+          {Array(6)
+            .fill(0)
+            .map((_, index) => (
+              <div className="skeleton-card" key={index}>
+                <Skeleton height={150} />
+                <Skeleton width={`80%`} style={{ marginTop: "8px" }} />
+                <Skeleton width={`60%`} />
+                <Skeleton width={`40%`} style={{ marginTop: "8px" }} />
+              </div>
+            ))}
+        </div>
+      </div>
+    );
   }
 
   if (error) {
@@ -42,7 +62,7 @@ const Home = ({ query }) => {
         <div className="banner">
           <div className="banner-overlay">
             <img
-              src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-finish-select-202409-6-1inch_GEO_EMEA_FMT_WHH?wid=1280&hei=492&fmt=p-jpg&qlt=80&.v=UXp1U3VDY3IyR1hNdHZwdFdOLzg1V0tFK1lhSCtYSGRqMUdhR284NTN4K0VvSjFQM0pLN0VsK2pmbVJmK1hUZDhiZjRKRUJ6ZU96N3VHVCtXdS9WdVUzdWN4ZENIZEJCc01VOW1QK3BzTGVNdlIyKy9FMURXQmRzdk1KZVhnSDh1WjFlQndWT3ZmeW5zc3dRUHliS2dB&traceId=1"
+              src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-finish-select-202409-6-1inch_GEO_EMEA_FMT_WHH?wid=1280&hei=492&fmt=p-jpg&qlt=80"
               alt="iPhone 16 Pro"
               className="banner-image"
             />

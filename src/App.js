@@ -12,26 +12,29 @@ import ProductDetails from "./ProductDetails";
 import Checkout from "./Checkout";
 import Confirmation from "./Confirmation";
 import { CartProvider } from "./CartContext";
+import PrivateComp from "./PrivateComp";
 
 const App = () => {
-  const [query, setQuery] = useState(""); // State to hold search query
+  const [query, setQuery] = useState("");
 
   return (
     <CartProvider>
       <Router>
-        {/* Pass query and setQuery to Navbar */}
         <Navbar query={query} setQuery={setQuery} />
         <Routes>
-          {/* Pass query as a prop to Home */}
-          <Route path="/" element={<Home query={query} />} />
-          <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/profile" element={<Profile />} />
+          
+          <Route element={<PrivateComp />}>
+            <Route path="/" element={<Home query={query} />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/confirmation" element={<Confirmation />} />
+          </Route>
+
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/confirmation" element={<Confirmation />} />
         </Routes>
         <Footer />
       </Router>
